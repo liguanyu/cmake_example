@@ -1,0 +1,21 @@
+#自定义变量
+SET(APP test_cmake)
+
+#编译依赖的子目录,编译出来的库这里可以直接引用
+ADD_SUBDIRECTORY(./libfoo)
+
+#提取本目录中源码文件到变量DIR_SRCS
+AUX_SOURCE_DIRECTORY(. DIR_SRCS)
+#提取子目录foo中源码到变量DIR_SRCS
+AUX_SOURCE_DIRECTORY(./foo DIR_SRCS)
+
+#依赖库
+INCLUDE_DIRECTORIES(${COMM_INCS})
+LINK_DIRECTORIES(${COMM_PATHS})
+
+#编译可执行程序
+ADD_EXECUTABLE(${APP} ${DIR_SRCS})
+
+#链接APP的依赖库
+TARGET_LINK_LIBRARIES(${APP} foo ${COMM_LIBS})
+
