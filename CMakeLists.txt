@@ -19,7 +19,7 @@ SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/extern_modules
 FIND_PACKAGE(jsoncpp REQUIRED)
 #不用怕这三个变量膨胀,链接器会过滤掉不需要的
 SET(COMM_INCS ${jsoncpp_INCLUDE_DIR})
-SET(COMM_PATHS ${jsoncpp_jsoncpp_LIBRARY})
+SET(COMM_PATHS ${jsoncpp_LIBRARY})
 SET(COMM_LIBS jsoncpp)
 
 #编译子目录
